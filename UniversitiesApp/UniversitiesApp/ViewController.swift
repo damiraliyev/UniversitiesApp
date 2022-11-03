@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     
     var universities =  [University]()
     
+    let searchController = UISearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,21 +24,18 @@ class ViewController: UIViewController {
         layout()
         
         
-        
-        fetchUniversities() { result in
-            switch result {
-            case .success(let university):
-                self.universities = university
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
-
-            }
-        }
+        fetchAll()
         
     }
     
     func setup() {
+        title = "Universities"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
+        
+    
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 65
@@ -51,6 +50,19 @@ class ViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
+        }
+    }
+    
+    func fetchAll() {
+        fetchUniversities() { result in
+            switch result {
+            case .success(let university):
+                self.universities = university
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+
+            }
         }
     }
 
@@ -75,3 +87,24 @@ extension ViewController: UITableViewDataSource {
     
 }
 
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchController.searchBar.resignFirstResponder()
+        
+        fetchUniversities(country: searchBar.text) { result in
+            switch result {
+            case .success(let university):
+                self.universities = university
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+
+            }
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        fetchAll()
+    }
+}

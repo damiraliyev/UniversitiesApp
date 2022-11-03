@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navVC
         
         let universitiesVC = ViewController()
-        
+        navVC.viewControllers = [universitiesVC]
         return true
     }
 
