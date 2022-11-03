@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     
     let searchController = UISearchController()
     
+    
+    var isLoaded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,9 +41,19 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 65
+        tableView.rowHeight = 70
         tableView.register(UniversityCell.self, forCellReuseIdentifier: UniversityCell.reuseID)
+        tableView.register(SkeletonCell.self, forCellReuseIdentifier: SkeletonCell.reuseID)
+        
+        setupSkeletons()
     }
+    
+    private func setupSkeletons() {
+           let row = University.makeSkeleton()
+           universities = Array(repeating: row, count: 10)
+           tableView.reloadData()
+           
+       }
     
     func layout() {
         view.addSubview(tableView)
@@ -57,6 +70,7 @@ class ViewController: UIViewController {
         fetchUniversities() { result in
             switch result {
             case .success(let university):
+                self.isLoaded = true
                 self.universities = university
                 self.tableView.reloadData()
             case .failure(let error):
@@ -79,9 +93,18 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UniversityCell.reuseID) as! UniversityCell
-        cell.configureCell(model: universities[indexPath.row])
+        if isLoaded {
+            let cell = tableView.dequeueReusableCell(withIdentifier: UniversityCell.reuseID) as! UniversityCell
+            
+            
+            
+            cell.configureCell(model: universities[indexPath.row])
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonCell.reuseID, for: indexPath) as! SkeletonCell
         return cell
+        
     }
     
     

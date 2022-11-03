@@ -21,6 +21,10 @@ struct University: Codable {
         case country
         case webPages = "web_pages"
     }
+    
+    static func makeSkeleton() -> University {
+           return University(domains: [], country: "Country", webPages: ["----------"])
+       }
 }
 
 //let json =
