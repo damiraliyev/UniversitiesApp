@@ -14,11 +14,12 @@
 		686D73EC2914515000830DF8 /* SkeletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D73EB2914515000830DF8 /* SkeletonLoadable.swift */; };
 		686D73EE2914522600830DF8 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D73ED2914522600830DF8 /* SkeletonCell.swift */; };
 		68A3900E291394E2009A39C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A3900D291394E2009A39C7 /* AppDelegate.swift */; };
-		68A39012291394E2009A39C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A39011291394E2009A39C7 /* ViewController.swift */; };
+		68A39012291394E2009A39C7 /* AllUniversitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A39011291394E2009A39C7 /* AllUniversitesViewController.swift */; };
 		68A39017291394E3009A39C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A39016291394E3009A39C7 /* Assets.xcassets */; };
 		68A3901A291394E3009A39C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A39018291394E3009A39C7 /* LaunchScreen.storyboard */; };
 		68FE68142914E1C800EC5B31 /* MyUniversitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FE68132914E1C800EC5B31 /* MyUniversitiesViewController.swift */; };
 		68FE68162914E24E00EC5B31 /* MyUniversitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FE68152914E24E00EC5B31 /* MyUniversitiesCell.swift */; };
+		68FE68192915183900EC5B31 /* UniversityInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FE68182915183900EC5B31 /* UniversityInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +30,13 @@
 		686D73ED2914522600830DF8 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 		68A3900A291394E2009A39C7 /* UniversitiesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversitiesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A3900D291394E2009A39C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68A39011291394E2009A39C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68A39011291394E2009A39C7 /* AllUniversitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUniversitesViewController.swift; sourceTree = "<group>"; };
 		68A39016291394E3009A39C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68A39019291394E3009A39C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68A3901B291394E3009A39C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68FE68132914E1C800EC5B31 /* MyUniversitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUniversitiesViewController.swift; sourceTree = "<group>"; };
 		68FE68152914E24E00EC5B31 /* MyUniversitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUniversitiesCell.swift; sourceTree = "<group>"; };
+		68FE68182915183900EC5B31 /* UniversityInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityInfoViewController.swift; sourceTree = "<group>"; };
 		7AF853472DEC00766E2283A3 /* Pods-UniversitiesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversitiesApp.debug.xcconfig"; path = "Target Support Files/Pods-UniversitiesApp/Pods-UniversitiesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AE99023E681C2A670E56FC5B /* Pods-UniversitiesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversitiesApp.release.xcconfig"; path = "Target Support Files/Pods-UniversitiesApp/Pods-UniversitiesApp.release.xcconfig"; sourceTree = "<group>"; };
 		B3B66611C5EC219321A6F36A /* Pods_UniversitiesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversitiesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,15 +76,14 @@
 			isa = PBXGroup;
 			children = (
 				68A3900D291394E2009A39C7 /* AppDelegate.swift */,
-				68A39011291394E2009A39C7 /* ViewController.swift */,
-				686D73A1291429B400830DF8 /* UniversityCell.swift */,
+				68FE68132914E1C800EC5B31 /* MyUniversitiesViewController.swift */,
+				68A39011291394E2009A39C7 /* AllUniversitesViewController.swift */,
+				68FE68182915183900EC5B31 /* UniversityInfoViewController.swift */,
 				686D73A329142B9300830DF8 /* Factory.swift */,
 				686D73A92914358D00830DF8 /* Networking.swift */,
 				686D73EB2914515000830DF8 /* SkeletonLoadable.swift */,
+				68FE68172915166200EC5B31 /* Cells */,
 				68A390212913950E009A39C7 /* Files */,
-				686D73ED2914522600830DF8 /* SkeletonCell.swift */,
-				68FE68132914E1C800EC5B31 /* MyUniversitiesViewController.swift */,
-				68FE68152914E24E00EC5B31 /* MyUniversitiesCell.swift */,
 			);
 			path = UniversitiesApp;
 			sourceTree = "<group>";
@@ -95,6 +96,16 @@
 				68A3901B291394E3009A39C7 /* Info.plist */,
 			);
 			name = Files;
+			sourceTree = "<group>";
+		};
+		68FE68172915166200EC5B31 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				686D73A1291429B400830DF8 /* UniversityCell.swift */,
+				68FE68152914E24E00EC5B31 /* MyUniversitiesCell.swift */,
+				686D73ED2914522600830DF8 /* SkeletonCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		7E91C2C75A39B5D8A937B184 /* Frameworks */ = {
@@ -232,9 +243,10 @@
 				686D73EE2914522600830DF8 /* SkeletonCell.swift in Sources */,
 				686D73AA2914358D00830DF8 /* Networking.swift in Sources */,
 				686D73EC2914515000830DF8 /* SkeletonLoadable.swift in Sources */,
+				68FE68192915183900EC5B31 /* UniversityInfoViewController.swift in Sources */,
 				68FE68142914E1C800EC5B31 /* MyUniversitiesViewController.swift in Sources */,
 				686D73A2291429B400830DF8 /* UniversityCell.swift in Sources */,
-				68A39012291394E2009A39C7 /* ViewController.swift in Sources */,
+				68A39012291394E2009A39C7 /* AllUniversitesViewController.swift in Sources */,
 				68A3900E291394E2009A39C7 /* AppDelegate.swift in Sources */,
 				68FE68162914E24E00EC5B31 /* MyUniversitiesCell.swift in Sources */,
 			);

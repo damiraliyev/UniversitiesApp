@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 
-class ViewController: UIViewController {
+class AllUniversitesViewController: UIViewController {
     
     
     let tableView = UITableView()
@@ -86,12 +86,14 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate {
-    
+extension AllUniversitesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
 
-extension ViewController: UITableViewDataSource {
+extension AllUniversitesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return universities.count
     }
@@ -119,7 +121,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 
-extension ViewController: UISearchBarDelegate {
+extension AllUniversitesViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchController.searchBar.resignFirstResponder()
         

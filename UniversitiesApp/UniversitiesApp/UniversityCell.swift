@@ -27,6 +27,9 @@ class UniversityCell: UITableViewCell {
     let universityWebPage = UILabel()
     
     let addButton = UIButton()
+    
+    var country = String()
+    var domain = String()
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -85,6 +88,8 @@ class UniversityCell: UITableViewCell {
     func configureCell(model: University) {
         universityNameLabel.text = model.name
         universityWebPage.text = model.webPages.first
+        country = model.country
+        domain = model.domains[0]
         
         if  addedUnivers.contains(universityNameLabel.text ?? "") {
             print("HERREEE")
@@ -95,7 +100,8 @@ class UniversityCell: UITableViewCell {
     }
     
     @objc func addButtonPressed() {
-        let universityData = ["universityName" : universityNameLabel.text ?? "", "webPage": universityWebPage.text ?? ""] as [String : Any]
+//        print(domen, "DOMEN")
+        let universityData = ["universityName" : universityNameLabel.text ?? "", "webPage": universityWebPage.text ?? "", "country": country, "domain": domain] as [String : Any]
         NotificationCenter.default.post(name: NSNotification.Name("AddUniversity"), object: nil, userInfo: universityData as [AnyHashable : Any])
         print(universityData)
         addButton.setImage(UIImage(systemName: "checkmark"), for: .normal)

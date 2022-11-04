@@ -15,15 +15,17 @@ struct University: Codable {
     let domains: [String]
     let name: String
     let webPages: [String]
+    let country: String
     
     enum CodingKeys: String, CodingKey {
         case domains
         case name
         case webPages = "web_pages"
+        case country
     }
     
     static func makeSkeleton() -> University {
-           return University(domains: [], name: "Country", webPages: ["----------"])
+           return University(domains: [], name: "", webPages: ["----------"], country: "")
        }
 }
 

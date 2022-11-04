@@ -60,8 +60,10 @@ class MyUniversitiesViewController: UIViewController {
         print("AAA")
         let universityNameInfo = notification.userInfo?["universityName"] as! String
         let universityWebPageInfo: [String] = [notification.userInfo?["webPage"] as! String]
+        let countryInfo = notification.userInfo?["country"] as! String
+        let domainInfo = notification.userInfo?["domain"] as! String
         
-        let newUniversity = University(domains: [""], name: universityNameInfo, webPages: universityWebPageInfo)
+        let newUniversity = University(domains: [domainInfo], name: universityNameInfo, webPages: universityWebPageInfo, country: countryInfo)
         
         if !addedUnivers.contains(universityNameInfo) {
             universities.append(newUniversity)
@@ -73,13 +75,26 @@ class MyUniversitiesViewController: UIViewController {
     }
     
     @objc func goToNextVC() {
-        let universitiesVC = ViewController()
+        let universitiesVC = AllUniversitesViewController()
         
         navigationController?.pushViewController(universitiesVC, animated: true)
     }
 }
 
 extension MyUniversitiesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let universityInfoVC = UniversityInfoViewController()
+        universityInfoVC.viewDidLoad()
+        print(universities[indexPath.row])
+        universityInfoVC.universityNameLabel.text = universities[indexPath.row].name
+        universityInfoVC.domainLabel.text = universities[indexPath.row].domains[0]
+        universityInfoVC.countryLabel.text = universities[indexPath.row].country
+        
+        navigationController?.pushViewController(universityInfoVC, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
 
