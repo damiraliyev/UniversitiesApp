@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 
+var addedUnivers = [String]()
 
 class MyUniversitiesViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class MyUniversitiesViewController: UIViewController {
     
     
     var universities =  [University]()
+    
+//    var addedUnivers = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +60,15 @@ class MyUniversitiesViewController: UIViewController {
         print("AAA")
         let universityNameInfo = notification.userInfo?["universityName"] as! String
         let universityWebPageInfo: [String] = [notification.userInfo?["webPage"] as! String]
-        print(universityNameInfo)
+        
         let newUniversity = University(domains: [""], name: universityNameInfo, webPages: universityWebPageInfo)
         
-        universities.append(newUniversity)
-        tableView.reloadData()
+        if !addedUnivers.contains(universityNameInfo) {
+            universities.append(newUniversity)
+            addedUnivers.append(universityNameInfo)
+            tableView.reloadData()
+        }
+        
         print(universities.count)
     }
     

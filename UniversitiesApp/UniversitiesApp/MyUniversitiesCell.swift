@@ -51,7 +51,7 @@ class MyUniversityCell: UITableViewCell {
         }
         
         universityNameLabel.snp.makeConstraints { make in
-            make.width.lessThanOrEqualTo(contentView.bounds.width - 20)
+            make.width.lessThanOrEqualTo(contentView.bounds.width)
         }
       
     }

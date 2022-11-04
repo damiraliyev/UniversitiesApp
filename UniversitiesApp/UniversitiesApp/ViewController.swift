@@ -21,8 +21,6 @@ class ViewController: UIViewController {
     
     var isLoaded = false
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,6 +88,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -101,9 +100,13 @@ extension ViewController: UITableViewDataSource {
         if isLoaded {
             let cell = tableView.dequeueReusableCell(withIdentifier: UniversityCell.reuseID) as! UniversityCell
             
-            
-            
             cell.configureCell(model: universities[indexPath.row])
+//            if  addedUnivers.contains(cell.universityNameLabel.text ?? "") {
+//                cell.addButton.setImage(UIImage(systemName: "checkmark"), for: .disabled)
+//            } else {
+//                cell.addButton.setImage(UIImage(systemName: "plus"), for: .disabled)
+//            }
+            
             return cell
         }
         

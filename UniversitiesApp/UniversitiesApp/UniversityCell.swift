@@ -27,8 +27,7 @@ class UniversityCell: UITableViewCell {
     let universityWebPage = UILabel()
     
     let addButton = UIButton()
-    
-     
+        
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
@@ -86,12 +85,21 @@ class UniversityCell: UITableViewCell {
     func configureCell(model: University) {
         universityNameLabel.text = model.name
         universityWebPage.text = model.webPages.first
+        
+        if  addedUnivers.contains(universityNameLabel.text ?? "") {
+            print("HERREEE")
+            addButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        } else {
+            addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        }
     }
     
     @objc func addButtonPressed() {
-        let universityData = ["universityName" : universityNameLabel.text ?? "", "webPage": universityWebPage.text] as [String : Any]
+        let universityData = ["universityName" : universityNameLabel.text ?? "", "webPage": universityWebPage.text ?? ""] as [String : Any]
         NotificationCenter.default.post(name: NSNotification.Name("AddUniversity"), object: nil, userInfo: universityData as [AnyHashable : Any])
         print(universityData)
         addButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        
+      
     }
 }
