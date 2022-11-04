@@ -17,6 +17,8 @@
 		68A39012291394E2009A39C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A39011291394E2009A39C7 /* ViewController.swift */; };
 		68A39017291394E3009A39C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A39016291394E3009A39C7 /* Assets.xcassets */; };
 		68A3901A291394E3009A39C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A39018291394E3009A39C7 /* LaunchScreen.storyboard */; };
+		68FE68142914E1C800EC5B31 /* MyUniversitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FE68132914E1C800EC5B31 /* MyUniversitiesViewController.swift */; };
+		68FE68162914E24E00EC5B31 /* MyUniversitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FE68152914E24E00EC5B31 /* MyUniversitiesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		68A39016291394E3009A39C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68A39019291394E3009A39C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68A3901B291394E3009A39C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68FE68132914E1C800EC5B31 /* MyUniversitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUniversitiesViewController.swift; sourceTree = "<group>"; };
+		68FE68152914E24E00EC5B31 /* MyUniversitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUniversitiesCell.swift; sourceTree = "<group>"; };
 		7AF853472DEC00766E2283A3 /* Pods-UniversitiesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversitiesApp.debug.xcconfig"; path = "Target Support Files/Pods-UniversitiesApp/Pods-UniversitiesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AE99023E681C2A670E56FC5B /* Pods-UniversitiesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversitiesApp.release.xcconfig"; path = "Target Support Files/Pods-UniversitiesApp/Pods-UniversitiesApp.release.xcconfig"; sourceTree = "<group>"; };
 		B3B66611C5EC219321A6F36A /* Pods_UniversitiesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversitiesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,8 @@
 				686D73EB2914515000830DF8 /* SkeletonLoadable.swift */,
 				68A390212913950E009A39C7 /* Files */,
 				686D73ED2914522600830DF8 /* SkeletonCell.swift */,
+				68FE68132914E1C800EC5B31 /* MyUniversitiesViewController.swift */,
+				68FE68152914E24E00EC5B31 /* MyUniversitiesCell.swift */,
 			);
 			path = UniversitiesApp;
 			sourceTree = "<group>";
@@ -226,9 +232,11 @@
 				686D73EE2914522600830DF8 /* SkeletonCell.swift in Sources */,
 				686D73AA2914358D00830DF8 /* Networking.swift in Sources */,
 				686D73EC2914515000830DF8 /* SkeletonLoadable.swift in Sources */,
+				68FE68142914E1C800EC5B31 /* MyUniversitiesViewController.swift in Sources */,
 				686D73A2291429B400830DF8 /* UniversityCell.swift in Sources */,
 				68A39012291394E2009A39C7 /* ViewController.swift in Sources */,
 				68A3900E291394E2009A39C7 /* AppDelegate.swift in Sources */,
+				68FE68162914E24E00EC5B31 /* MyUniversitiesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

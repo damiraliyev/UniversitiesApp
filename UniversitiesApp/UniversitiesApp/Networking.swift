@@ -13,17 +13,17 @@ let urlString = "http://universities.hipolabs.com/search?"
 
 struct University: Codable {
     let domains: [String]
-    let country: String
+    let name: String
     let webPages: [String]
     
     enum CodingKeys: String, CodingKey {
         case domains
-        case country
+        case name
         case webPages = "web_pages"
     }
     
     static func makeSkeleton() -> University {
-           return University(domains: [], country: "Country", webPages: ["----------"])
+           return University(domains: [], name: "Country", webPages: ["----------"])
        }
 }
 

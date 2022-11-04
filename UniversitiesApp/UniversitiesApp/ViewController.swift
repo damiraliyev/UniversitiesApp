@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 class ViewController: UIViewController {
     
     
@@ -19,6 +20,8 @@ class ViewController: UIViewController {
     
     
     var isLoaded = false
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +37,15 @@ class ViewController: UIViewController {
     func setup() {
         title = "Universities"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
-        
+        navigationItem.hidesSearchBarWhenScrolling = false
     
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 70
+        tableView.rowHeight = 75
         tableView.register(UniversityCell.self, forCellReuseIdentifier: UniversityCell.reuseID)
         tableView.register(SkeletonCell.self, forCellReuseIdentifier: SkeletonCell.reuseID)
         
@@ -79,7 +83,8 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
+   
 
 }
 
@@ -118,6 +123,7 @@ extension ViewController: UISearchBarDelegate {
         fetchUniversities(country: searchBar.text) { result in
             switch result {
             case .success(let university):
+                self.isLoaded = true
                 self.universities = university
                 self.tableView.reloadData()
             case .failure(let error):
@@ -128,6 +134,8 @@ extension ViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isLoaded = false
+        tableView.reloadData()
         fetchAll()
     }
 }

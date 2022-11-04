@@ -18,9 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = navVC
+//        window?.rootViewController = MyUniversitiesViewController()
         
+        let myUniversititesVC = MyUniversitiesViewController()
         let universitiesVC = ViewController()
-        navVC.viewControllers = [universitiesVC]
+        
+        navVC.viewControllers = [myUniversititesVC]
         return true
     }
 

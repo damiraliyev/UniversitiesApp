@@ -14,6 +14,9 @@ struct Model {
     let webPage: String
 }
 
+
+
+
 class UniversityCell: UITableViewCell {
     static let reuseID = "UniversityCell"
     
@@ -23,20 +26,29 @@ class UniversityCell: UITableViewCell {
     
     let universityWebPage = UILabel()
     
+    let addButton = UIButton()
+    
+     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
         layout()
+//        registerForNotificationChanges()
         
     }
     
     func setup() {
         
-        universityNameLabel.adjustsFontSizeToFitWidth = true
+//        universityNameLabel.adjustsFontSizeToFitWidth = true
         universityNameLabel.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         
         universityWebPage.adjustsFontSizeToFitWidth = true
         universityWebPage.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        
+        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addButton.addTarget(self, action: #selector(addButtonPressed), for: .primaryActionTriggered)
+       
+        
     }
     
     func layout() {
@@ -46,10 +58,25 @@ class UniversityCell: UITableViewCell {
         stackView.addArrangedSubview(universityNameLabel)
         stackView.addArrangedSubview(universityWebPage)
         
+        contentView.addSubview(addButton)
+        
         stackView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.centerY.equalToSuperview()
+            make.width.lessThanOrEqualTo(contentView.bounds.width - 20)
         }
+        
+        addButton.snp.makeConstraints { make in
+            make.centerY.equalTo(stackView.snp.centerY)
+            make.trailing.equalToSuperview().offset(-16)
+            
+        }
+    }
+    
+    func registerForNotificationChanges() {
+        
+        let universityData = ["universityName" : universityNameLabel.text ?? "", "webPage": universityWebPage] as [String : Any]
+        NotificationCenter.default.post(name: NSNotification.Name("AddUniversity"), object: nil, userInfo: universityData as [AnyHashable : Any])
     }
     
     required init?(coder: NSCoder) {
@@ -57,7 +84,14 @@ class UniversityCell: UITableViewCell {
     }
     
     func configureCell(model: University) {
-        universityNameLabel.text = model.country
+        universityNameLabel.text = model.name
         universityWebPage.text = model.webPages.first
+    }
+    
+    @objc func addButtonPressed() {
+        let universityData = ["universityName" : universityNameLabel.text ?? "", "webPage": universityWebPage.text] as [String : Any]
+        NotificationCenter.default.post(name: NSNotification.Name("AddUniversity"), object: nil, userInfo: universityData as [AnyHashable : Any])
+        print(universityData)
+        addButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
     }
 }
