@@ -57,7 +57,6 @@ class MyUniversitiesViewController: UIViewController {
     }
     
     @objc func addPressed(_ notification: Notification) {
-        print("AAA")
         let universityNameInfo = notification.userInfo?["universityName"] as! String
         let universityWebPageInfo: [String] = [notification.userInfo?["webPage"] as! String]
         let countryInfo = notification.userInfo?["country"] as! String
@@ -70,8 +69,6 @@ class MyUniversitiesViewController: UIViewController {
             addedUnivers.append(universityNameInfo)
             tableView.reloadData()
         }
-        
-        print(universities.count)
     }
     
     @objc func goToNextVC() {
@@ -86,7 +83,6 @@ extension MyUniversitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let universityInfoVC = UniversityInfoViewController()
         universityInfoVC.viewDidLoad()
-        print(universities[indexPath.row])
         universityInfoVC.universityNameLabel.text = universities[indexPath.row].name
         universityInfoVC.domainLabel.text = universities[indexPath.row].domains[0]
         universityInfoVC.countryLabel.text = universities[indexPath.row].country

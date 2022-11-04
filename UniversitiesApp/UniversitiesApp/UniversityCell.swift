@@ -92,7 +92,6 @@ class UniversityCell: UITableViewCell {
         domain = model.domains[0]
         
         if  addedUnivers.contains(universityNameLabel.text ?? "") {
-            print("HERREEE")
             addButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
         } else {
             addButton.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -100,10 +99,8 @@ class UniversityCell: UITableViewCell {
     }
     
     @objc func addButtonPressed() {
-//        print(domen, "DOMEN")
         let universityData = ["universityName" : universityNameLabel.text ?? "", "webPage": universityWebPage.text ?? "", "country": country, "domain": domain] as [String : Any]
         NotificationCenter.default.post(name: NSNotification.Name("AddUniversity"), object: nil, userInfo: universityData as [AnyHashable : Any])
-        print(universityData)
         addButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
         
       

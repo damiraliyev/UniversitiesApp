@@ -62,7 +62,6 @@ func fetchUniversities(country: String?="", completion: @escaping (Result<[Unive
                 let university = try JSONDecoder().decode([University].self, from: data)
                 completion(.success(university))
             } catch {
-                print("DECODING")
                 completion(.failure(.decodingError))
             }
 
