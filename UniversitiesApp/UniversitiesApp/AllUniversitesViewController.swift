@@ -21,6 +21,9 @@ class AllUniversitesViewController: UIViewController {
     
     var isLoaded = false
     
+    var isSomethingTyped = false
+    var searchCounter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -136,11 +139,31 @@ extension AllUniversitesViewController: UISearchBarDelegate {
 
             }
         }
+        
+        searchCounter += 1
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        isSomethingTyped = true
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+//        Statements that prevents from unnecessary loading
+        if searchCounter == 0 { return }
+        
+        if universities.count == 0{
+            fetchIfNecessary()
+        } else if universities.count != 0 && searchCounter == 1 {
+            fetchIfNecessary()
+        }
+    }
+    
+    
+    func fetchIfNecessary() {
         isLoaded = false
-        tableView.reloadData()
         fetchAll()
+        tableView.reloadData()
+        searchCounter = 0
     }
 }
