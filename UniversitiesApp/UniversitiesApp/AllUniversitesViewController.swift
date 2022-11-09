@@ -153,6 +153,7 @@ extension AllUniversitesViewController: UISearchBarDelegate {
         if searchCounter == 0 { return }
         
         if universities.count == 0{
+            setupSkeletons()
             fetchIfNecessary()
         } else if universities.count != 0 && searchCounter == 1 {
             fetchIfNecessary()
