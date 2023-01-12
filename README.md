@@ -11,3 +11,25 @@ https://user-images.githubusercontent.com/75442373/212071771-560fc9d2-d00c-496a-
 ## Tech Stack
 
 **UIKit**
+
+## Run Locally
+
+To run the project you need SnapKit
+
+Go to the file directory and run this command in your terminal
+
+```bash
+  pod init
+```
+
+Add dependencies
+
+```bash
+  pod 'SnapKit', '~> 5.6.0'
+```
+
+Install dependencies
+
+```bash
+  pod install
+```
