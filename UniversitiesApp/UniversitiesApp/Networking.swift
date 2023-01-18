@@ -26,7 +26,7 @@ struct University: Codable {
     
     static func makeSkeleton() -> University {
            return University(domains: [], name: "", webPages: ["----------"], country: "")
-       }
+    }
 }
 
 //let json =
@@ -43,9 +43,9 @@ func fetchUniversities(country: String?="", completion: @escaping (Result<[Unive
     if country != nil {
         countryName = "country=\(country!)"
     }
-    
-    guard let url = URL(string: urlString + "\(countryName)") else {
-        print(urlString + "\(countryName)")
+
+    guard let url = URL(string: urlString + countryName) else {
+        print(urlString + countryName)
         completion(.failure(.badUrl))
         return
     }

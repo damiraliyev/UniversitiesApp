@@ -30,7 +30,6 @@ class AllUniversitesViewController: UIViewController {
         setup()
         layout()
         
-        
         fetchAll()
         
     }
@@ -41,6 +40,7 @@ class AllUniversitesViewController: UIViewController {
         
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Country"
         navigationItem.hidesSearchBarWhenScrolling = false
     
         
